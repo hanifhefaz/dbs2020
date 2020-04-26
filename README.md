@@ -5,8 +5,11 @@ Project
 - Hefaz M. Hanif
 
 ## Navrh
-- I am goint to make a Library Management System for Desktop systems using Java and MySQL as my project.
+- I am going to make a Library Management System for Desktop systems using Java and MySQL as my project.
 - This project will include all 5 scenarios mentioned in the project site. 
+
+## Adding two more scenarios
+- It is planned to add two more scenarios till the end of the semester.
 
 ### Structure of the system
 The system will be able to do all simple and complex operations needed for a librarian and its administration. there will be one Administrator for the system, who will be able to add, delete, view or update any librarian. and ofcourse there will be more than one librarians for the system.
