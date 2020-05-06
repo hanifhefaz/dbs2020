@@ -1,9 +1,9 @@
 # ***Library Management System***
 
 ### Hanif Hefaz
-### Supervisor: Ing. Miroslav Rác
+### Supervisor: Ing. Rastislav Bencel, PhD.
 
-### SS 2018/2019
+### SS 2019/2020
 
 - [x]  First Scenario
 
@@ -11,7 +11,14 @@
 
 - [x]  Forth and Fifth Scenarios
 
+- [x]  Implementing ORM
+
+- [x]  Adding Status Queries
+
 ## About
+
+**Installation**
+This project is done in Netbeans, Java and MySql. the database name is library, username for the database is root and there is no password for the databse. XAMPP server was installed for MySQL. 
 
 **Technologies**
 
@@ -157,3 +164,59 @@ here also the `numClick` is used. later we can change it to the amount of combo 
 `Indexes` were implemented in all the important fields that are used somehow in queries.
 
 the `data model` was improved and around 35 millions data was added. creation of two more tables `authors` and `publishers` was implemented.
+
+## Implementing ORM (Object Relaional Model)
+for adding two more scenarios I chose, implementing ORM, and adding status queries (which returns us the status for different queries). I have implemented ORM using Hibernate in netbeans Java application. for this porpuse, I have added `Hibernate Library` and then modefied the configuration file. I then added a GUI form to return the list of all authors based on searching or entering first name or any letter, using ORM. 
+
+the query used in ORM looks something like this:
+
+```private static final String QUERY_BASED_ON_FIRST_NAME="from Author a where a.name like '";
+
+    private void runQueryBasedOnFirstName() {
+        executeHQLQuery(QUERY_BASED_ON_FIRST_NAME + jTextField1.getText() + "%'");
+    }
+```    
+I then, defined the queryExecuttion and then implemented List to return us the results.
+
+```
+private void executeHQLQuery(String hql) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query q = session.createQuery(hql);
+            List resultList = q.list();
+            displayResult(resultList);
+            session.getTransaction().commit();
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
+
+    }
+
+    private void displayResult(List resultList) {
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Id");
+        tableHeaders.add("Name");
+        tableHeaders.add("Born On");
+        tableHeaders.add("City");
+
+        for (Object o : resultList) {
+            Author actor = (Author) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(actor.getId());
+            oneRow.add(actor.getName());
+            oneRow.add(actor.getBYear());
+            oneRow.add(actor.getCity());
+            tableData.add(oneRow);
+        }
+        jTable1.setModel(new DefaultTableModel(tableData, tableHeaders));
+
+    }
+```
+
+and this way, I have successfully, returned the list of all users using ORM.
+
+## Adding status Queries
+
+In this scenario I have tried to implement more status queries.
