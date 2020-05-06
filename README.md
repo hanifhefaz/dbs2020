@@ -10,8 +10,8 @@ Project
 
 ## Adding two more scenarios
 - It is planned to add two more scenarios till the end of the semester.
-- First Scenario: Implementing ORM
-- Second Scenarion: Adding Status queries in one form (contains too many queries).
+- **First Scenario:** Implementing ORM
+- **Second Scenarion:** Adding Status queries in one form (contains too many queries).
 
 ### Structure of the system
 The system will be able to do all simple and complex operations needed for a librarian and its administration. there will be one Administrator for the system, who will be able to add, delete, view or update any librarian. and ofcourse there will be more than one librarians for the system.
