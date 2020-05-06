@@ -15,7 +15,7 @@ import java.sql.Statement;
  *
  * @author Hefaz
  */
-public class JoinConnection {
+public final class JoinConnection {
     
     public Connection con;
     public Statement stat;
@@ -29,7 +29,7 @@ public class JoinConnection {
     public void systemConnection(){
 		try{
 		Class.forName("com.mysql.jdbc.Driver");
-		con =(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","");
+		con =(com.mysql.cj.jdbc.ConnectionImpl) DriverManager.getConnection("jdbc:mysql://localhost:3306/library","root","");
                 stat = (Statement) con.createStatement();
 		}catch(ClassNotFoundException | SQLException e){System.out.println(e);}
 	}
