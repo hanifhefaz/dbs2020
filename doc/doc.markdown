@@ -221,4 +221,39 @@ and this way, I have successfully, returned the list of all users using ORM.
 
 ## Adding status Queries
 
-In this scenario I have tried to implement more status queries.
+In this scenario I have tried to implement more status queries. each query is explained below:
+- Authors born between years:
+in this query I have tried to return all those authors, who were born between two entered years. the query looks something like this:
+```
+SELECT name, city, YEAR(b_year)from author WHERE YEAR(b_year) BETWEEN '"+jTextField1.getText()+"' AND '"+jTextField2.getText()+"' order by name ASC
+```
+- 10 most recent issued books:
+
+Here I have tried to return 10 most recently issued books with the student name, book name and issued date. the query looks something like this:
+```
+SELECT books.name, students.name, issued.issued_date from books INNER JOIN issued ON issued.bookcallno = books.callno INNER JOIN students ON students.id = issued.student_id ORDER BY issued.issued_date DESC LIMIT 10
+```
+- Authors with most books:
+
+In this query I have tried to return authors with most written books. the query looks like this:
+```
+SELECT author.id, author.name, COUNT(*) AS t FROM author, books WHERE author.id = books.author_id GROUP BY author.name ORDER BY t DESC
+```
+- Authors from the same City:
+
+In this query all authors who are from the same city are returned. it looks something like this:
+```
+Select distinct a.id, a.name, a.city from author a, author a1 where a.city = a1.city and a.id != a1.id
+```
+- Books with top quantity from each category:
+
+In this query it is tried to return a list of all books with most quantity in each category. for example Book1 is 50 copies in quantity in Category1. the query looks like this:
+```
+SELECT t.category_id,t.callno,t.name,c.name,t.quantity from(SELECT max(quantity) as TotalQuantity,category_id from books group by category_id) as TempNew Inner Join books t on TempNew.category_id=t.category_id and TempNew.TotalQuantity=t.quantity inner join category c on TempNew.category_id = c.id order by category_id asc
+```
+- All authors in each category:
+
+this query is trying to return count of all authors who have written books in each category. WITH ROLLUP is also used here to find count all authors and all books. it looks like this:
+```
+SELECT category_id, COUNT(author_id), sum(quantity) from books JOIN author ON books.author_id = author.id group by category_id WITH ROLLUP
+```
