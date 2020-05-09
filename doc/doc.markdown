@@ -249,11 +249,11 @@ Select distinct a.id, a.name, a.city from author a, author a1 where a.city = a1.
 
 In this query it is tried to return a list of all books with most quantity in each category. for example Book1 is 50 copies in quantity in Category1. the query looks like this:
 ```
-SELECT t.category_id,t.callno,t.name,c.name,t.quantity from(SELECT max(quantity) as TotalQuantity,category_id from books group by category_id) as TempNew Inner Join books t on TempNew.category_id=t.category_id and TempNew.TotalQuantity=t.quantity inner join category c on TempNew.category_id = c.id order by category_id asc
+SELECT t.category_id,t.callno,t.name,c.name,t.quantity from(SELECT max(quantity) as TotalQuantity,category_id from books group by category_id) as TempNew Inner Join books t on TempNew.category_id=t.category_id and TempNew.TotalQuantity=t.quantity inner join category c on TempNew.category_id = c.id order by quantity desc
 ```
 - All authors in each category:
 
 this query is trying to return count of all authors who have written books in each category. WITH ROLLUP is also used here to find count all authors and all books. it looks like this:
 ```
-SELECT category_id, COUNT(author_id), sum(quantity) from books JOIN author ON books.author_id = author.id group by category_id WITH ROLLUP
+SELECT category_id, COUNT(distinct author_id), sum(distinct quantity), sum(quantity) from books JOIN author ON books.author_id = author.id group by category_id WITH ROLLUP
 ```
