@@ -217,7 +217,7 @@ private void executeHQLQuery(String hql) {
 
 and this way, I have successfully, returned the list of all users using ORM.
 
-![Image description](https://www.github.com/hanifhefaz/dbs2020/ORM.png)
+![Image](https://www.github.com/hanifhefaz/dbs2020/ORM.png)
 
 ## Adding status Queries
 
