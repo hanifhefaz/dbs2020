@@ -103,7 +103,7 @@ JoinConnection how = new JoinConnection();
     {
         try{ 
             // join used here for the application
-            how.res = how.stat.executeQuery("SELECT t.category_id,t.callno,t.name,c.name,t.quantity from(SELECT max(quantity) as TotalQuantity,category_id from books group by category_id) as TempNew Inner Join books t on TempNew.category_id=t.category_id and TempNew.TotalQuantity=t.quantity inner join category c on TempNew.category_id = c.id order by category_id asc");
+            how.res = how.stat.executeQuery("SELECT t.category_id,t.callno,t.name,c.name,t.quantity from(SELECT max(quantity) as TotalQuantity,category_id from books group by category_id) as TempNew Inner Join books t on TempNew.category_id=t.category_id and TempNew.TotalQuantity=t.quantity inner join category c on TempNew.category_id = c.id order by quantity desc");
             while(how.res.next()){
                 String catid = how.res.getString(1);
                 String bookcall = how.res.getString(2);
@@ -123,12 +123,13 @@ JoinConnection how = new JoinConnection();
     {
         try{ 
             // join used here for the application
-            how.res = how.stat.executeQuery("SELECT category_id, COUNT(author_id), sum(quantity) from books JOIN author ON books.author_id = author.id group by category_id WITH ROLLUP");
+            how.res = how.stat.executeQuery("SELECT category_id, COUNT(distinct author_id), sum(distinct quantity), sum(quantity) from books JOIN author ON books.author_id = author.id group by category_id WITH ROLLUP");
             while(how.res.next()){
                 String catid = how.res.getString(1);
                 String authors = how.res.getString(2);
                 String categoryall = how.res.getString(3);
-                Object[] content = {catid,authors,categoryall};
+                String total = how.res.getString(4);
+                Object[] content = {catid,authors,categoryall,total};
                 DefaultTableModel model = (DefaultTableModel)jTable6.getModel();
                 model.addRow(content); 
             }
@@ -225,7 +226,7 @@ JoinConnection how = new JoinConnection();
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "ID", "Name", "NumberOfBooks"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
@@ -291,7 +292,7 @@ JoinConnection how = new JoinConnection();
 
             },
             new String [] {
-                "CatID", "AllAuthor", "AllBooks"
+                "CatID", "AllAuthors", "AllBooks", "Volumes"
             }
         ));
         jScrollPane6.setViewportView(jTable6);
