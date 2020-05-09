@@ -49,6 +49,7 @@ public class LibrarianSuccess extends javax.swing.JFrame {
         btnReturnBook1 = new javax.swing.JButton();
         btnViewBooks1 = new javax.swing.JButton();
         btnReturnBook2 = new javax.swing.JButton();
+        btnReturnBook3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -216,10 +217,19 @@ public class LibrarianSuccess extends javax.swing.JFrame {
         btnReturnBook2.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         btnReturnBook2.setForeground(new java.awt.Color(255, 255, 255));
         btnReturnBook2.setText("Update Students");
-        btnReturnBook2.setActionCommand("Update Students");
         btnReturnBook2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReturnBook2ActionPerformed(evt);
+            }
+        });
+
+        btnReturnBook3.setBackground(new java.awt.Color(153, 0, 255));
+        btnReturnBook3.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
+        btnReturnBook3.setForeground(new java.awt.Color(255, 255, 255));
+        btnReturnBook3.setText("ORM Authors");
+        btnReturnBook3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnBook3ActionPerformed(evt);
             }
         });
 
@@ -245,7 +255,10 @@ public class LibrarianSuccess extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnReturnBook, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNewButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnNewButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnReturnBook3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnReturnBook1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,7 +292,8 @@ public class LibrarianSuccess extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnNewButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnNewButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnReturnBook3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnIssueBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -406,7 +420,6 @@ public class LibrarianSuccess extends javax.swing.JFrame {
 
     private void btnReturnBook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBook1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         UpdateBooks.main(new String[]{});
     }//GEN-LAST:event_btnReturnBook1ActionPerformed
 
@@ -418,9 +431,13 @@ public class LibrarianSuccess extends javax.swing.JFrame {
 
     private void btnReturnBook2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBook2ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         UpdateStudents.main(new String[]{});
     }//GEN-LAST:event_btnReturnBook2ActionPerformed
+
+    private void btnReturnBook3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBook3ActionPerformed
+        // TODO add your handling code here:
+        ORMAuthors.main(new String[]{});
+    }//GEN-LAST:event_btnReturnBook3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,6 +462,7 @@ public class LibrarianSuccess extends javax.swing.JFrame {
     private javax.swing.JButton btnReturnBook;
     private javax.swing.JButton btnReturnBook1;
     private javax.swing.JButton btnReturnBook2;
+    private javax.swing.JButton btnReturnBook3;
     private javax.swing.JButton btnViewBooks;
     private javax.swing.JButton btnViewBooks1;
     private javax.swing.JButton btnViewIssuedBooks;

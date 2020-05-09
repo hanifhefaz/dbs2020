@@ -165,7 +165,7 @@ JoinConnection how = new JoinConnection();
             }
         });
 
-        jLabel1.setText("Author ID:");
+        jLabel1.setText("Author Name:");
 
         jLabel2.setText("Enter Author's ID to view all his Books");
 
@@ -460,6 +460,8 @@ JoinConnection how = new JoinConnection();
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
@@ -476,7 +478,6 @@ JoinConnection how = new JoinConnection();
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -552,7 +553,7 @@ JoinConnection how = new JoinConnection();
             how.res = how.stat.executeQuery("select books.callno, books.name, author.name, publisher.name from books"
                     + " inner join author on author.id = books.author_id "
                     + "inner join publisher on publisher.id = books.publisher_id "
-                    + "where author.id='"+jTextField5.getText()+"'");
+                    + "where author.name like '%"+jTextField5.getText()+"%'");
             
             while(how.res.next()){
                 String Name = how.res.getString(1);

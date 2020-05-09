@@ -36,7 +36,7 @@ public class DeleteLibrarian extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 153));
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 153));

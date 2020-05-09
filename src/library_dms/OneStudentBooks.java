@@ -26,7 +26,7 @@ public class OneStudentBooks extends javax.swing.JFrame {
         
         try{ 
             // join used here for the application
-            how.res = how.stat.executeQuery("SELECT bookcallno, issued_date, name,contact FROM issued t1 INNER JOIN students t2 ON t1.student_id=t2.id WHERE t2.id ='" +jTextField1.getText()+"'GROUP by t1.issued_date");
+            how.res = how.stat.executeQuery("SELECT bookcallno, issued_date, name,contact FROM issued t1 INNER JOIN students t2 ON t1.student_id=t2.id WHERE t2.name like '%" +jTextField1.getText()+"%' GROUP by t1.issued_date");
             
             while(how.res.next()){
                 String id = how.res.getString(1);
@@ -65,7 +65,7 @@ public class OneStudentBooks extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 255, 204));
 
-        jLabel1.setText("Enter Student ID");
+        jLabel1.setText("Enter Student Name");
 
         jButton1.setText("Show");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class OneStudentBooks extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
