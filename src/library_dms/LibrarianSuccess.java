@@ -420,22 +420,24 @@ public class LibrarianSuccess extends javax.swing.JFrame {
 
     private void btnReturnBook1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBook1ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         UpdateBooks.main(new String[]{});
     }//GEN-LAST:event_btnReturnBook1ActionPerformed
 
     private void btnViewBooks1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewBooks1ActionPerformed
         // TODO add your handling code here:
-        this.dispose();
         ViewStudents.main(new String[]{});
     }//GEN-LAST:event_btnViewBooks1ActionPerformed
 
     private void btnReturnBook2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBook2ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         UpdateStudents.main(new String[]{});
     }//GEN-LAST:event_btnReturnBook2ActionPerformed
 
     private void btnReturnBook3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnBook3ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         ORMAuthors.main(new String[]{});
     }//GEN-LAST:event_btnReturnBook3ActionPerformed
 
