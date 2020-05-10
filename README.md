@@ -1,7 +1,7 @@
 Project
 
 ## Documentation
-Documentation for this project a logn side with queries existing in doc folder and Wiki pages.
+Documentation for this project a long side with queries existing in doc folder and Wiki pages.
 
 ## Navrh
 - I am going to make a Library Management System for Desktop systems using Java and MySQL as my project.
